@@ -36,14 +36,19 @@ function processResults(students) {
         // 새로운 직업 섹션을 추가
         if (student.chosen_job !== currentJob) {
             currentJob = student.chosen_job;
+            const jobSection = document.createElement('div');
+            jobSection.classList.add('job-section');
+            
             const jobHeader = document.createElement('h2');
             jobHeader.textContent = currentJob;
-            resultsDiv.appendChild(jobHeader);
+            jobSection.appendChild(jobHeader);
+
+            resultsDiv.appendChild(jobSection);
         }
 
         // 학생 정보 표시
         const studentInfo = document.createElement('p');
         studentInfo.textContent = `이름: ${student.name}, 임금: ${student.desired_wage}`;
-        resultsDiv.appendChild(studentInfo);
+        resultsDiv.lastChild.appendChild(studentInfo);
     });
 }

@@ -2,19 +2,21 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>직업 경매 시스템</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>직업 경매</h1>
     <form id="jobForm">
         <label for="name">이름:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required>
 
         <label for="job">직업 입력:</label>
-        <input type="text" id="job" name="job" required><br><br>
+        <input type="text" id="job" name="job" required>
 
         <label for="wage">희망 임금:</label>
-        <input type="number" id="wage" name="wage" required><br><br>
+        <input type="number" id="wage" name="wage" required>
 
         <button type="submit">제출</button>
     </form>
@@ -24,9 +26,9 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
 
-    <!-- Firebase 구성 및 초기화 -->
+    <!-- Firebase 설정 -->
     <script src="firebase-config.js"></script>
-
+    
     <!-- 앱 로직 -->
     <script src="app.js"></script>
 </body>
