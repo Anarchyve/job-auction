@@ -25,12 +25,12 @@
     </form>
 
     <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js"></script>
 
     <!-- Firebase 설정 -->
     <script>
-        // Firebase 설정
+        // Firebase 초기화 설정
         const firebaseConfig = {
           apiKey: "YOUR_API_KEY",
           authDomain: "YOUR_AUTH_DOMAIN",
@@ -42,8 +42,10 @@
         };
 
         // Firebase 초기화
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();  // Firestore 초기화
+        firebase.initializeApp(firebaseConfig);
+
+        // Firestore 초기화
+        const db = firebase.firestore();
     </script>
 
     <!-- Firestore 데이터 제출 -->
