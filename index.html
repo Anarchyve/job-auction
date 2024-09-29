@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>직업 경매 시스템</title>
 </head>
 <body>
@@ -25,20 +24,18 @@
     </form>
 
     <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore.js"></script>
+    <!-- 호환성 버전 사용 -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
-    <!-- Firebase 설정 -->
+    <!-- Firebase 초기화 -->
     <script>
-        // Firebase 초기화 설정
+        // Firebase 설정
         const firebaseConfig = {
-          apiKey: "YOUR_API_KEY",
-          authDomain: "YOUR_AUTH_DOMAIN",
-          projectId: "YOUR_PROJECT_ID",
-          storageBucket: "YOUR_STORAGE_BUCKET",
-          messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-          appId: "YOUR_APP_ID",
-          measurementId: "YOUR_MEASUREMENT_ID"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            // 나머지 설정 정보
         };
 
         // Firebase 초기화
@@ -50,25 +47,26 @@
 
     <!-- Firestore 데이터 제출 -->
     <script>
-        document.getElementById("jobForm").addEventListener("submit", async (event) => {
-            event.preventDefault(); // 폼 제출 시 새로고침 방지
+        document.getElementById("jobForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
             const name = document.getElementById("name").value;
             const job = document.getElementById("job").value;
             const wage = document.getElementById("wage").value;
 
-            try {
-                const docRef = await db.collection("students").add({
-                    name: name,
-                    chosen_job: job,
-                    desired_wage: Number(wage)
-                });
+            db.collection("students").add({
+                name: name,
+                chosen_job: job,
+                desired_wage: Number(wage)
+            })
+            .then(function(docRef) {
                 console.log("Document written with ID: ", docRef.id);
                 alert("제출되었습니다!");
-            } catch (e) {
-                console.error("Error adding document: ", e);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
                 alert("데이터 전송에 실패했습니다.");
-            }
+            });
         });
     </script>
 </body>
