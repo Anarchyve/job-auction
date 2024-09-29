@@ -7,7 +7,7 @@ const firebaseConfig = {
     messagingSenderId: "936152405332",
     appId: "1:936152405332:web:0edebc79884405ad9764c1",
     measurementId: "G-B6V5XDECDJ"
-  };
+};
 
 // Firebase 초기화
 firebase.initializeApp(firebaseConfig);

@@ -1,6 +1,4 @@
-// 'db' 변수를 재선언하지 않고 그대로 사용
-
-// 페이지 로드 시 결과 표시
+// Firestore에서 데이터를 가져와 화면에 표시
 document.addEventListener('DOMContentLoaded', displayResults);
 
 function displayResults() {
@@ -17,4 +15,14 @@ function displayResults() {
         });
 }
 
-// 나머지 코드...
+// 결과 데이터를 처리하고 화면에 표시
+function processResults(students) {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = ''; // 기존 내용을 초기화
+
+    students.forEach(student => {
+        const studentInfo = document.createElement('p');
+        studentInfo.textContent = `이름: ${student.name}, 직업: ${student.chosen_job}, 임금: ${student.desired_wage}`;
+        resultsDiv.appendChild(studentInfo);
+    });
+}
