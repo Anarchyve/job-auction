@@ -1,20 +1,17 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-
-// Firebase 설정
+// Firebase 설정 객체
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
-  measurementId: "YOUR_MEASUREMENT_ID"
-};
+    apiKey: "AIzaSyC1dCqAjGq8Q7JRunxsDYCvjqxSTl6NnDE",
+    authDomain: "job-auction-91c20.firebaseapp.com",
+    projectId: "job-auction-91c20",
+    storageBucket: "job-auction-91c20.appspot.com",
+    messagingSenderId: "936152405332",
+    appId: "1:936152405332:web:0edebc79884405ad9764c1",
+    measurementId: "G-B6V5XDECDJ"
+  };
 
 // Firebase 초기화
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);  // Firestore 초기화
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
-// Firestore 인스턴스를 export
-export { db };
+// Firestore 초기화
+const db = firebase.firestore();
