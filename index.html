@@ -27,19 +27,25 @@
     <!-- 호환성 버전 사용 -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <!-- Firebase Analytics를 사용하려면 아래 SDK도 추가하세요 -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
 
     <!-- Firebase 초기화 -->
     <script>
-        // Firebase 설정
+        // Firebase 설정 객체
         const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            // 나머지 설정 정보
+            apiKey: "AIzaSyC1dCqAjGqQ7JRunxsDYCvjqxSTl6NnDE",
+            authDomain: "job-auction-91c20.firebaseapp.com",
+            projectId: "job-auction-91c20",
+            storageBucket: "job-auction-91c20.appspot.com",
+            messagingSenderId: "936152405332",
+            appId: "1:936152405332:web:0edebc79884405ad9764c1",
+            measurementId: "G-B6V5XDECDJ"
         };
 
         // Firebase 초기화
         firebase.initializeApp(firebaseConfig);
+        firebase.analytics(); // Analytics를 사용하려면 필요
 
         // Firestore 초기화
         const db = firebase.firestore();
