@@ -9,8 +9,14 @@ function displayResults() {
                 students.push({ id: doc.id, ...doc.data() });
             });
 
-            // 데이터를 직업별로 분류하고 임금 순으로 정렬
-            const sortedStudents = students.sort((a, b) => {
+            // 평균 임금의 4배로 상한선 계산
+            const upperLimit = calculateDynamicUpperLimit(students, 4);
+
+            // 상한선 이하인 학생들만 선발
+            const validStudents = students.filter(student => isWageWithinLimit(student.desired_wage, upperLimit));
+
+            // 유효한 학생들을 직업별로 정렬하고 결과 처리
+            const sortedStudents = validStudents.sort((a, b) => {
                 if (a.chosen_job < b.chosen_job) return -1;
                 if (a.chosen_job > b.chosen_job) return 1;
                 if (a.desired_wage < b.desired_wage) return -1;
@@ -23,6 +29,18 @@ function displayResults() {
         .catch((error) => {
             console.error('데이터 가져오기 실패:', error);
         });
+}
+
+// 동적 상한선 계산 (평균 임금의 multiplier배)
+function calculateDynamicUpperLimit(students, multiplier) {
+    const totalWages = students.reduce((sum, student) => sum + student.desired_wage, 0);
+    const averageWage = totalWages / students.length;
+    return averageWage * multiplier;  // 상한선을 평균 임금의 4배로 설정
+}
+
+// 임금이 상한선 내에 있는지 확인
+function isWageWithinLimit(wage, upperLimit) {
+    return wage <= upperLimit;
 }
 
 // 결과 데이터를 처리하고 화면에 표시
