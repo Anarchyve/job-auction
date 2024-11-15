@@ -1,135 +1,15 @@
-/* style.css */
-
-/* 공통 스타일 */
-:root {
-    --bg-color: #f8f9fa;
-    --text-color: #212529;
-    --input-bg-color: #ffffff;
-    --button-bg-color: #6c757d;
-    --button-hover-bg-color: #495057;
-    --border-color: #ced4da;
-
-    /* 다크 모드 색상 */
-    --dark-bg-color: #212529;
-    --dark-text-color: #f8f9fa;
-    --dark-input-bg-color: #343a40;
-    --dark-button-bg-color: #495057;
-    --dark-button-hover-bg-color: #6c757d;
-    --dark-border-color: #495057;
-}
-
-/* 기본 배경 및 텍스트 스타일 */
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-h1 {
-    margin-top: 20px;
-    font-weight: 300;
-}
-
-form, .input-group {
-    width: 100%;
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: var(--input-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: var(--input-bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
+/* 관리자 페이지로 이동 버튼 스타일 */
+.admin-button {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 1rem;
     background-color: var(--button-bg-color);
-    color: #ffffff;
-    border: none;
     border-radius: 4px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.admin-button:hover {
     background-color: var(--button-hover-bg-color);
-}
-
-/* 다크 모드 */
-.dark-mode {
-    --bg-color: var(--dark-bg-color);
-    --text-color: var(--dark-text-color);
-    --input-bg-color: var(--dark-input-bg-color);
-    --button-bg-color: var(--dark-button-bg-color);
-    --button-hover-bg-color: var(--dark-button-hover-bg-color);
-    --border-color: var(--dark-border-color);
-}
-
-/* 다크 모드 토글 스위치 */
-.toggle-switch {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.toggle-switch input[type="checkbox"] {
-    display: none;
-}
-
-.toggle-switch label {
-    display: block;
-    width: 50px;
-    height: 25px;
-    background-color: var(--button-bg-color);
-    border-radius: 25px;
-    cursor: pointer;
-    position: relative;
-    transition: background-color 0.3s ease;
-}
-
-.toggle-switch label::after {
-    content: '';
-    width: 21px;
-    height: 21px;
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.3s ease;
-}
-
-.toggle-switch input[type="checkbox"]:checked + label {
-    background-color: var(--button-hover-bg-color);
-}
-
-.toggle-switch input[type="checkbox"]:checked + label::after {
-    transform: translateX(25px);
 }
 
 /* 응모 항목별 구분 박스 스타일 */
@@ -153,4 +33,3 @@ button:hover {
     margin: 5px 0;
     color: var(--text-color);
 }
-

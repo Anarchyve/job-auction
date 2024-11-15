@@ -23,47 +23,41 @@ function filterByClass() {
                 return 0;
             });
 
-            processResults(sortedStudents);
+            renderResults(sortedStudents);
         })
         .catch((error) => {
             console.error('데이터 가져오기 실패:', error);
         });
 }
 
-// 동적 상한선 계산 (평균 임금의 multiplier배)
-function calculateDynamicUpperLimit(students, multiplier) {
-    const totalWages = students.reduce((sum, student) => sum + student.desired_wage, 0);
-    const averageWage = totalWages / students.length;
-    return averageWage * multiplier;  // 상한선을 평균 임금의 4배로 설정
-}
-
-// 임금이 상한선 내에 있는지 확인
-function isWageWithinLimit(wage, upperLimit) {
-    return wage <= upperLimit;
-}
-
 // 결과 데이터를 처리하고 화면에 표시
-function processResults(students) {
+function renderResults(students) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = ''; // 기존 내용을 초기화
 
-    let currentJob = '';
-
-    students.forEach(student => {
-        if (student.chosen_job !== currentJob) {
-            currentJob = student.chosen_job;
-            const jobSection = document.createElement('div');
-            jobSection.classList.add('job-section');
-            
-            const jobHeader = document.createElement('h2');
-            jobHeader.textContent = currentJob;
-            jobSection.appendChild(jobHeader);
-
-            resultsDiv.appendChild(jobSection);
+    const groupedResults = students.reduce((groups, student) => {
+        const job = student.chosen_job;
+        if (!groups[job]) {
+            groups[job] = [];
         }
+        groups[job].push(student);
+        return groups;
+    }, {});
 
-        const studentInfo = document.createElement('p');
-        studentInfo.textContent = `이름: ${student.name}, 희망 가격: ${student.desired_wage}`;
-        resultsDiv.lastChild.appendChild(studentInfo);
-    });
+    for (const [job, entries] of Object.entries(groupedResults)) {
+        const jobSection = document.createElement('div');
+        jobSection.classList.add('job-section');
+
+        const jobHeader = document.createElement('h2');
+        jobHeader.textContent = job;
+        jobSection.appendChild(jobHeader);
+
+        entries.forEach(student => {
+            const studentInfo = document.createElement('p');
+            studentInfo.textContent = `이름: ${student.name}, 학급: ${student.classId}, 희망 가격: ${student.desired_wage}`;
+            jobSection.appendChild(studentInfo);
+        });
+
+        resultsDiv.appendChild(jobSection);
+    }
 }
