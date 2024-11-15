@@ -1,25 +1,26 @@
+/* style.css */
+
 /* 공통 스타일 */
 :root {
-    --bg-color: #f4f4f9;
-    --text-color: #333;
-    --input-bg-color: #fff;
-    --button-bg-color: #555;
-    --button-hover-bg-color: #333;
-    --border-color: #ccc;
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --input-bg-color: #ffffff;
+    --button-bg-color: #6c757d;
+    --button-hover-bg-color: #495057;
+    --border-color: #ced4da;
+
+    /* 다크 모드 색상 */
+    --dark-bg-color: #212529;
+    --dark-text-color: #f8f9fa;
+    --dark-input-bg-color: #343a40;
+    --dark-button-bg-color: #495057;
+    --dark-button-hover-bg-color: #6c757d;
+    --dark-border-color: #495057;
 }
 
-/* 다크 모드 스타일 */
-.dark-mode {
-    --bg-color: #121212;
-    --text-color: #f0f0f0;
-    --input-bg-color: #1e1e1e;
-    --button-bg-color: #444;
-    --button-hover-bg-color: #222;
-    --border-color: #444;
-}
-
+/* 기본 배경 및 텍스트 스타일 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
@@ -33,6 +34,7 @@ body {
 
 h1 {
     margin-top: 20px;
+    font-weight: 300;
 }
 
 form, .input-group {
@@ -43,7 +45,7 @@ form, .input-group {
     background-color: var(--input-bg-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 label {
@@ -67,7 +69,7 @@ button {
     width: 100%;
     padding: 10px;
     background-color: var(--button-bg-color);
-    color: #fff;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -78,7 +80,17 @@ button:hover {
     background-color: var(--button-hover-bg-color);
 }
 
-/* 다크 모드 토글 버튼 */
+/* 다크 모드 */
+.dark-mode {
+    --bg-color: var(--dark-bg-color);
+    --text-color: var(--dark-text-color);
+    --input-bg-color: var(--dark-input-bg-color);
+    --button-bg-color: var(--dark-button-bg-color);
+    --button-hover-bg-color: var(--dark-button-hover-bg-color);
+    --border-color: var(--dark-border-color);
+}
+
+/* 다크 모드 토글 스위치 */
 .toggle-switch {
     position: absolute;
     top: 10px;

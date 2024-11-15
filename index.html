@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 다크 모드 토글 버튼 -->
     <div class="toggle-switch">
         <input type="checkbox" id="toggle-dark-mode" onchange="toggleDarkMode()">
         <label for="toggle-dark-mode"></label>
     </div>
+
     <h1>경매</h1>
     <form id="jobForm">
         <label for="name">이름:</label>
@@ -46,12 +48,21 @@
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
+            const isDarkMode = document.body.classList.contains("dark-mode");
+            localStorage.setItem("darkMode", isDarkMode ? "enabled" : "disabled");
         }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const darkMode = localStorage.getItem("darkMode");
+            if (darkMode === "enabled") {
+                document.body.classList.add("dark-mode");
+            }
+        });
 
         function verifyAdmin() {
             const answer = prompt("관리자 인증 질문: 2x=10 일 때 x는 몇인가요?");
             if (answer === "5") {
-                window.location.href = "admin.html"; // 관리자 페이지로 이동
+                window.location.href = "admin.html";
             } else {
                 alert("잘못된 답변입니다. 관리자만 접근할 수 있습니다.");
             }
