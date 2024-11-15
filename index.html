@@ -24,6 +24,9 @@
         <button type="submit">제출</button>
     </form>
 
+    <!-- 관리자 페이지로 이동 버튼 -->
+    <button id="adminButton" onclick="verifyAdmin()">관리자 페이지로 이동</button>
+
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -34,5 +37,17 @@
 
     <!-- 앱 로직 -->
     <script src="app.js"></script>
+
+    <!-- 관리자 인증 로직 -->
+    <script>
+        function verifyAdmin() {
+            const answer = prompt("관리자 인증 질문: 2x=10 일 때 x는 몇인가요?");
+            if (answer === "5") {
+                window.location.href = "admin.html"; // 관리자 페이지로 이동
+            } else {
+                alert("잘못된 답변입니다. 관리자만 접근할 수 있습니다.");
+            }
+        }
+    </script>
 </body>
 </html>
