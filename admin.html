@@ -8,9 +8,10 @@
 </head>
 <body>
     <h1>직업 배정 결과</h1>
-    <label for="adminClassId">학급:</label>
-    <input type="text" id="adminClassId" name="adminClassId" placeholder="학급 입력">
-    <button onclick="filterByClass()">조회</button>
+    <div class="input-group">
+        <input type="text" id="adminClassId" name="adminClassId" placeholder="학급 입력">
+        <button onclick="filterByClass()">조회</button>
+    </div>
     <div class="results" id="results">
         <!-- 결과가 여기에 표시됩니다. -->
     </div>
