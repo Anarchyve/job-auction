@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 페이지</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>직업 배정 결과</h1>
+    <label for="adminClassId">학급:</label>
+    <input type="text" id="adminClassId" name="adminClassId" placeholder="학급 입력">
+    <button onclick="filterByClass()">조회</button>
+    <div class="results" id="results">
+        <!-- 결과가 여기에 표시됩니다. -->
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase 설정 -->
+    <script src="firebase-config.js"></script>
+
+    <!-- 관리자 페이지 로직 -->
+    <script src="admin.js"></script>
+</body>
+</html>
