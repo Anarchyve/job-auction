@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>경매 결과</h1>
+    <div class="toggle-switch">
+        <input type="checkbox" id="toggle-dark-mode" onchange="toggleDarkMode()">
+        <label for="toggle-dark-mode"></label>
+    </div>
+    <h1>관리자 페이지</h1>
     <div class="input-group">
-        <input type="text" id="adminClassId" name="adminClassId" placeholder="학급 입력">
+        <input type="text" id="adminClassId" placeholder="학급 입력">
         <button onclick="filterByClass()">조회</button>
     </div>
     <div class="results" id="results">
@@ -18,13 +22,20 @@
 
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
 
     <!-- Firebase 설정 -->
     <script src="firebase-config.js"></script>
 
     <!-- 관리자 페이지 로직 -->
     <script src="admin.js"></script>
+
+    <!-- 다크 모드 스크립트 -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>
