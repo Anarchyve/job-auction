@@ -131,3 +131,26 @@ button:hover {
 .toggle-switch input[type="checkbox"]:checked + label::after {
     transform: translateX(25px);
 }
+
+/* 응모 항목별 구분 박스 스타일 */
+.job-section {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--input-bg-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.job-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.job-section p {
+    margin: 5px 0;
+    color: var(--text-color);
+}
+

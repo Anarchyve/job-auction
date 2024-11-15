@@ -63,7 +63,7 @@ function processResults(students) {
         }
 
         const studentInfo = document.createElement('p');
-        studentInfo.textContent = `이름: ${student.name}, 임금: ${student.desired_wage}`;
+        studentInfo.textContent = `이름: ${student.name}, 희망 가격: ${student.desired_wage}`;
         resultsDiv.lastChild.appendChild(studentInfo);
     });
 }
