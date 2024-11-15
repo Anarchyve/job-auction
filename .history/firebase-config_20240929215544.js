@@ -11,6 +11,7 @@ const firebaseConfig = {
 
 // Firebase 초기화
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 // Firestore 초기화
 const db = firebase.firestore();
