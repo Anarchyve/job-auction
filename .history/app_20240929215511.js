@@ -2,13 +2,11 @@ document.getElementById("jobForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
     const name = document.getElementById("name").value;
-    const className = document.getElementById("class").value; // 학급명 추가
     const job = document.getElementById("job").value;
     const wage = document.getElementById("wage").value;
 
     db.collection("students").add({
         name: name,
-        class: className, // 학급명 저장
         chosen_job: job,
         desired_wage: Number(wage)
     })

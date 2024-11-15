@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>경매 결과</h1>
-    <label for="classInput">학급명 입력:</label>
-    <input type="text" id="classInput" name="classInput" placeholder="학급명을 입력하세요" required>
-    <button id="fetchData">조회</button>
+    <h1>직업 배정 결과</h1>
+    <div class="results" id="results">
+        <!-- 결과가 여기에 표시됩니다. -->
+    </div>
 
-    <div class="results" id="results"></div>
-
+    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase 설정 -->
     <script src="firebase-config.js"></script>
+
+    <!-- 관리자 페이지 로직 -->
     <script src="admin.js"></script>
 </body>
 </html>
