@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 페이지</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>경매 결과</h1>
+    <label for="classInput">학급명 입력:</label>
+    <input type="text" id="classInput" name="classInput" placeholder="학급명을 입력하세요" required>
+    <button id="fetchData">조회</button>
+    
+    <div class="results" id="results"></div>
+    
+    <button id="deleteAllData">모든 데이터 삭제</button>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase 설정 -->
+    <script src="firebase-config.js"></script>
+
+    <!-- 관리자 페이지 로직 -->
+    <script src="admin.js"></script>
+</body>
+</html>
