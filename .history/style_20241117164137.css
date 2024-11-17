@@ -59,10 +59,6 @@ button {
     text-align: center;
 }
 
-button + button {
-    margin-top: 20px; /* 바로 인접한 버튼 사이에 20px 간격 */
-}
-
 button:hover {
     background-color: #5a6268; /* 호버 시 조금 어두운 색 */
 }
